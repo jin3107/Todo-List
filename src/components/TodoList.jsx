@@ -9,12 +9,20 @@ function TodoList() {
     if (input.trim()) {
       setJobs(prev => {
         const newJobs = [...prev, input];
-        console.log(newJobs);
+        console.log('Lists: ', newJobs);
         return newJobs;
       });
       setInput('');
     }
   }
+
+  const handleDeleteJob = (index) => {
+    setJobs(prev => {
+      const delJobs = prev.filter((_, i) => i !== index);
+      console.log('Remaining: ', delJobs);
+      return delJobs;
+    });
+  };
 
   return (
     <>
@@ -32,7 +40,7 @@ function TodoList() {
       <div>
         <ul>
           {jobs.map((job, index) => (
-            <TodoItem key={index} text={job} />
+            <TodoItem key={index} text={job} onDelete={() => handleDeleteJob(index)} />
           ))}
         </ul>
       </div>

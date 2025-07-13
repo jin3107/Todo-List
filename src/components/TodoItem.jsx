@@ -2,9 +2,13 @@ import '../index.css';
 
 function TodoItem({ text, onDelete }) {
     return (
-        <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+        <li style={{ display: 'flex', alignItems: 'center' }}>
             {text}
-            <button className="button" onClick={onDelete}>Delete</button>
+            <button 
+                style={{ marginLeft: 'auto', fontSize: 15, padding: 12, columnGap: 10 }} 
+                onClick={onDelete}>
+                Delete
+            </button>
         </li>
     )
 }
